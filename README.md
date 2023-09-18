@@ -2,6 +2,12 @@
 TonaFlow is an application that allows users to analyze electrocardiogram (ECG). 
 This application is young and under heavy development. Please feel free to suggest any changes or features via email at manash.sahoo@times.uh.edu.
 
+## Source Requirements
+Development for this application will require the following MATLAB toolboxes: 
+1. Image Processing Toolbox
+2. Signal Processing Toolbox
+3. Curve Fitting Toolbox
+
 ## Getting Started
 ____
 ### ECG Format
