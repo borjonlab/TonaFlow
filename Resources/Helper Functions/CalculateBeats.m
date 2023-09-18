@@ -1,4 +1,4 @@
-function dum = CalculateBeats(hTim,hMon,Fs,MergeTol)
+function dum = CalculateBeats(hTim,hMon,Fs,MergeTol, Threshwin)
     Fs = round(Fs);
     if nargin < 4
         MergeTol = 1/Fs;
@@ -7,10 +7,11 @@ function dum = CalculateBeats(hTim,hMon,Fs,MergeTol)
     
     sesLen=hTim(end)-hTim(1);
     %%segment into 1 second windows
-    lseg=1;
+    % lseg=1;
+    lseg = Threshwin;
     lSes=size(hTim,1);
-    Time=zeros(floor(sesLen),Fs); 
-    for g = 1:floor(sesLen)
+    Time=zeros(floor(sesLen/lseg),Fs * lseg); 
+    for g = 1:floor(sesLen/lseg)
         Time(g,:) = 1+lseg*(g-1)*Fs:lseg*g*Fs;
     end
     % Step through time segments and find peaks > 95 percentile
