@@ -1,5 +1,5 @@
 
-<img src="https://raw.githubusercontent.com/borjonlab/TonaFlow/main/Resources/TF%20Logo%20Darkmode.png" width="48">
+<img src="https://raw.githubusercontent.com/borjonlab/TonaFlow/main/Resources/TF%20Logo%20Darkmode.png" width="480">
 
 
 TonaFlow is an application that allows users to analyze electrocardiogram (ECG). 
