@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.ezdeploy" plugin-version="1.0">
-  <configuration file="/Users/snlab/Documents/GitHub/TonaFlow/main.prj" location="/Users/snlab/Documents/GitHub/TonaFlow" name="main" target="target.ezdeploy.standalone" target-name="Application Compiler">
+  <configuration file="/Users/devlabair2/Documents/GitHub/TonaFlow/main.prj" location="/Users/devlabair2/Documents/GitHub/TonaFlow" name="main" target="target.ezdeploy.standalone" target-name="Application Compiler">
     <param.appname>TonaFlow</param.appname>
     <param.icon />
     <param.icons />
@@ -15,15 +15,15 @@
     <param.installpath.combo>option.installpath.systemwideapp</param.installpath.combo>
     <param.logo />
     <param.install.notes />
-    <param.target.install.notes>In the following directions, replace MR/R2023a by the directory on the target machine where MATLAB is installed, or MR by the directory where the MATLAB Runtime is installed.
+    <param.target.install.notes>In the following directions, replace MR/R2023b by the directory on the target machine where MATLAB is installed, or MR by the directory where the MATLAB Runtime is installed.
 
 If the environment variable DYLD_LIBRARY_PATH is undefined, set it to the following string:
 
-MR/R2023a/runtime/maci64:MR/R2023a/sys/os/maci64:MR/R2023a/bin/maci64
+MR/R2023b/runtime/maca64:MR/R2023b/sys/os/maca64:MR/R2023b/bin/maca64
 
 If it is defined, set it to the following:
 
-${DYLD_LIBRARY_PATH}:MR/R2023a/runtime/maci64:MR/R2023a/sys/os/maci64:MR/R2023a/bin/maci64</param.target.install.notes>
+${DYLD_LIBRARY_PATH}:MR/R2023b/runtime/maca64:MR/R2023b/sys/os/maca64:MR/R2023b/bin/maca64</param.target.install.notes>
     <param.intermediate>${PROJECT_ROOT}/main/for_testing</param.intermediate>
     <param.files.only>${PROJECT_ROOT}/main/for_redistribution_files_only</param.files.only>
     <param.output>${PROJECT_ROOT}/main/for_redistribution</param.output>
@@ -93,46 +93,25 @@ ${DYLD_LIBRARY_PATH}:MR/R2023a/runtime/maci64:MR/R2023a/sys/os/maci64:MR/R2023a/
       <file>${PROJECT_ROOT}/BeatDetectionDlg.mlapp</file>
       <file>${PROJECT_ROOT}/Resources/Helper Functions/CalculateBeats.m</file>
       <file>${PROJECT_ROOT}/Resources/Helper Functions/CalculateHeartRate.m</file>
+      <file>${PROJECT_ROOT}/Resources/Helper Functions/PreviewThreshold.m</file>
       <file>${PROJECT_ROOT}/Resources/Helper Functions/find_nan_indices.m</file>
+      <file>${PROJECT_ROOT}/Resources/TF Logo.png</file>
       <file>${PROJECT_ROOT}/Resources/logo.png</file>
+      <file>${PROJECT_ROOT}/RespDLG.mlapp</file>
       <file>${PROJECT_ROOT}/about.mlapp</file>
     </fileset.depfun>
     <build-deliverables>
-      <file location="${PROJECT_ROOT}/main/for_testing" name="readme.txt" optional="true">/Users/snlab/Documents/GitHub/TonaFlow/main/for_testing/readme.txt</file>
-      <file location="${PROJECT_ROOT}/main/for_testing" name="TonaFlow.app" optional="false">/Users/snlab/Documents/GitHub/TonaFlow/main/for_testing/TonaFlow.app</file>
-      <file location="${PROJECT_ROOT}/main/for_testing" name="run_TonaFlow.sh" optional="false">/Users/snlab/Documents/GitHub/TonaFlow/main/for_testing/run_TonaFlow.sh</file>
-      <file location="${PROJECT_ROOT}/main/for_testing" name="splash.png" optional="false">/Users/snlab/Documents/GitHub/TonaFlow/main/for_testing/splash.png</file>
+      <file location="${PROJECT_ROOT}/main/for_testing" name="readme.txt" optional="true">/Users/devlabair2/Documents/GitHub/TonaFlow/main/for_testing/readme.txt</file>
+      <file location="${PROJECT_ROOT}/main/for_testing" name="splash.png" optional="false">/Users/devlabair2/Documents/GitHub/TonaFlow/main/for_testing/splash.png</file>
+      <file location="${PROJECT_ROOT}/main/for_testing" name="run_TonaFlow.sh" optional="false">/Users/devlabair2/Documents/GitHub/TonaFlow/main/for_testing/run_TonaFlow.sh</file>
+      <file location="${PROJECT_ROOT}/main/for_testing" name="TonaFlow.app" optional="false">/Users/devlabair2/Documents/GitHub/TonaFlow/main/for_testing/TonaFlow.app</file>
     </build-deliverables>
     <workflow />
     <matlab>
-      <root>/Applications/MATLAB_R2023a.app</root>
+      <root>/Applications/MATLAB_R2023b.app</root>
       <toolboxes>
-        <toolbox name="matlabcoder" />
-        <toolbox name="embeddedcoder" />
-        <toolbox name="fixedpoint" />
-        <toolbox name="matlabhdlcoder" />
         <toolbox name="neuralnetwork" />
       </toolboxes>
-      <toolbox>
-        <matlabcoder>
-          <enabled>true</enabled>
-        </matlabcoder>
-      </toolbox>
-      <toolbox>
-        <embeddedcoder>
-          <enabled>true</enabled>
-        </embeddedcoder>
-      </toolbox>
-      <toolbox>
-        <fixedpoint>
-          <enabled>true</enabled>
-        </fixedpoint>
-      </toolbox>
-      <toolbox>
-        <matlabhdlcoder>
-          <enabled>true</enabled>
-        </matlabhdlcoder>
-      </toolbox>
       <toolbox>
         <neuralnetwork>
           <enabled>true</enabled>
@@ -149,8 +128,8 @@ ${DYLD_LIBRARY_PATH}:MR/R2023a/runtime/maci64:MR/R2023a/sys/os/maci64:MR/R2023a/
       <linux>false</linux>
       <solaris>false</solaris>
       <osver>13.5</osver>
-      <os32>false</os32>
-      <os64>true</os64>
+      <os32>true</os32>
+      <os64>false</os64>
       <arch>maci64</arch>
       <matlab>true</matlab>
     </platform>
