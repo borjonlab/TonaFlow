@@ -7,8 +7,8 @@ function [thr, Time] = PreviewThreshold(ECGx,ECGy, prc, Fs, Threshwin)
     lseg = Threshwin;
     lSes=size(ECGx,1);
     % Time=zeros(floor(sesLen/lseg),floor(Fs * lseg));  % Added ceil
-    Time = zeros(ceil(sesLen/lseg),ceil(Fs*lseg));
-    for g = 1:ceil(sesLen/lseg)
+    Time = zeros(floor(sesLen/lseg),ceil(Fs*lseg));
+    for g = 1:floor(sesLen/lseg)
         Time(g,:) = 1+lseg*(g-1)*Fs:ceil(lseg*g*Fs); % Added ceil
     end
     % Step through time segments and find peaks > 95 percentile
