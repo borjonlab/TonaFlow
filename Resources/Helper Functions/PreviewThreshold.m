@@ -21,6 +21,12 @@ function [thr, Time] = PreviewThreshold(ECGx,ECGy, prc, Fs, Threshwin)
         clear seg
     end
     
+
+    if length(thr) < length(ECGx)
+        % Add padding to the thr
+        df = length(ECGx) - length(thr);
+        thr = [thr nan(1,df)];
+    end
     % thr = reshape(thr,1,size(thr,1)*size(thr,2));
     % if size(thr,2) < size(ECGx,2)
     %     df = size(ECGx,2) - size(thr,2);

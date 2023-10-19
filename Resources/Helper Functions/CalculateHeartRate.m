@@ -13,8 +13,8 @@ function rate = CalculateHeartRate(dum, dt ,Fs,BlurWinLen, SmoothingFactor)
     %     rate(end+1) = rate(end);
     % end
 
-    if size(rate,2) < size(dt,2)
-        nd = size(dt,2) - size(rate,2);
+    if length(rate) < length(dt)
+        nd = length(dt) - length(rate);
         rate(end:end+nd) = rate(end);
     end
     rate = csaps(dt, rate, SmoothingFactor, dt);
