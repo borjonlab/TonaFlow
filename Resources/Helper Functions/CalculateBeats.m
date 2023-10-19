@@ -25,18 +25,19 @@ function dum = CalculateBeats(hTim,hMon,Fs,MergeTol, Threshwin)
 
     mSpks = uniquetol(spks,1/MergeTol);
     mSpks = sort(mSpks);
-    
+
     % Look at every single peak, then find the max within a window. This
     % way the heartbeats occurr at the peak of the heartbeat. Fix courtesy
     % of Mr. Borjon.
-    ix = 1:size(hTim,2);
+    ix = 1:size(hTim,1);
     ix = ix';
-    reftab = [ix hTim' hMon]; % Reference table
-    reftab(:,2) = round(reftab(:,2), 5);
+    reftab = [ix hTim hMon]; % Reference table
+    % reftab(:,2) = round(reftab(:,2), 5);
     win =  20; % Number of element window
     nspk = [];
     for x = 1:size(mSpks,1)
-        this = reftab(reftab(:,2) == mSpks(x),:);
+        % this = reftab(reftab(:,2) == mSpks(x),:);
+        this = reftab(isequaltol2(reftab(:,2),mSpks(x),1/Fs),:);
         window = reftab(this(1) - (win/2) : this(1) + (win/2),:);
         [m,i] = max(window(:,3));
         nspk = [nspk; window(i,2)];
