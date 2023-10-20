@@ -1,18 +1,21 @@
 #MATLAB Preferences
-#Mon Oct 16 13:28:25 CDT 2023
+#Fri Oct 20 10:38:01 CDT 2023
 RLHiddenB2_WB_2014b_1=I16376
+RLOrderB2_WB_2014b_1=S0:1:
 MatlabExitConfirm=Bfalse
 DeploytoollastOpenFile=S
-EditorMRU8=S/Applications/MATLAB_R2023b.app/toolbox/wavelet/wavelet/cwtfreqbounds.m
-EditorMRU7=S/Applications/MATLAB_R2023b.app/toolbox/matlab/appdesigner/appdesigner/+appdesigner/+internal/+application/AppCodeTool.m
-EditorMRU6=S/Applications/MATLAB_R2023b.app/toolbox/matlab/iofun/readtable.m
-EditorMRU5=S/Users/devlabair2/Documents/GitHub/TonaFlow/Resources/Helper Functions/PreviewThreshold.m
-EditorMRU4=S/Applications/MATLAB_R2023b.app/toolbox/signal/signal/phasedelay.m
-EditorMRU3=S/Volumes/borjon/users/jiborjon/matlab/cardiacProcessing/BRM_Pilot.m
-EditorMRU2=S/Users/devlabair2/Documents/GitHub/TonaFlow/Resources/Helper Functions/CalculateRespirationRate.m
-EditorMRU1=S/Users/devlabair2/Documents/GitHub/TonaFlow/Resources/Helper Functions/CalculateBeats.m
+EditorMRU8=S/Users/devlabair2/Desktop/k99FreePlay/separateAcc.m
+EditorMRU7=S/Applications/MATLAB_R2023b.app/toolbox/matlab/io/filesystem/isdir.m
+EditorMRU6=S/Applications/MATLAB_R2023b.app/toolbox/matlab/io/xml/+matlab/+io/+xml/+internal/+write/errorIfXML.m
+EditorMRU5=S/Applications/MATLAB_R2023b.app/toolbox/matlab/datatypes/tabular/@tabular/dotParenReference.m
+EditorMRU4=S/Applications/MATLAB_R2023b.app/toolbox/matlab/graphics/closereq.m
+EditorMRU3=S/Users/devlabair2/Documents/GitHub/SigSync/selectDatapoints.m
+EditorMRU2=S/Applications/MATLAB_R2023b.app/toolbox/matlab/graphics/datacursormode.m
+EditorMRU1=S/Users/devlabair2/Desktop/k99FreePlay/formatData.m
 CommandWindowClearConfirmation=Btrue
 DeploytoolrecentProjects=S/Users/devlabair2/Documents/GitHub/TonaFlow/main.prj
 RLWidthB2_WB_2014b_1_1=I130
 RLWidthB2_WB_2014b_1_0=I130
+RLPrevInitB2_null=Btrue
 RLPrevInitB2_WB_2014b_1=Btrue
+mlint-configurations-list=S/Users/devlabair2/Library/Application Support/MathWorks/MATLAB/R2023b/MLintDefaultSettings.txt
