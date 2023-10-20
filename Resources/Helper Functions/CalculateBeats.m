@@ -25,6 +25,15 @@ function dum = CalculateBeats(hTim,hMon,Fs,MergeTol, Threshwin)
 
     mSpks = uniquetol(spks,1/MergeTol);
     mSpks = sort(mSpks);
+    
+    % Something weird is happening so just check to make sure everything is
+    % a column
+    if ~iscolumn(hMon)
+        hMon = hMon';
+    end
+    if ~iscolumn(hTim)
+        hTim = hTim';
+    end
 
     % Look at every single peak, then find the max within a window. This
     % way the heartbeats occurr at the peak of the heartbeat. Fix courtesy
