@@ -38,10 +38,11 @@ function [outputArg1,outputArg2] = CalculateRespirationRate(rX,resp,Fs)
     respPeaksLoc=respPeaks/rFs;
     
     % % respPeaksLoc=respPeaks/rFs;
-    useThese=builtin('_mergesimpts',respPeaksLoc,1/2,'average')';
+    % useThese=builtin('_mergesimpts',respPeaksLoc,1/2,'average')';
+    useThese = uniquetol(respPeaksLoc,1/1000);
     dum=zeros(1,floor(sesLen*rFs));
     
-    useThese(152:153) = [367.5 369.1];
+    % useThese(152:153) = [367.5 369.1];
     
     dum(round(useThese*rFs))=1;
     gaussFilter = gausswin(rFs*15);
