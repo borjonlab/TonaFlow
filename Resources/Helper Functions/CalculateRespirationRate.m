@@ -1,6 +1,6 @@
 function respRate = CalculateRespirationRate(rX,resp,Fs)
     sesLen=rX(end);
-    rFs=50;
+    rFs=Fs;
     rFTim=1/rFs:1/rFs:sesLen;
     
     lseg=1;
@@ -39,7 +39,7 @@ function respRate = CalculateRespirationRate(rX,resp,Fs)
     
     % % respPeaksLoc=respPeaks/rFs;
     % useThese=builtin('_mergesimpts',respPeaksLoc,1/2,'average')';
-    useThese = uniquetol(respPeaksLoc,1/1000);
+    useThese = uniquetol(respPeaksLoc,1/Fs);
     dum=zeros(1,floor(sesLen*rFs));
     
     % useThese(152:153) = [367.5 369.1];
