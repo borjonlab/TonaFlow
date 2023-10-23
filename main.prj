@@ -1,9 +1,9 @@
 <deployment-project plugin="plugin.ezdeploy" plugin-version="1.0">
-  <configuration file="/Users/devlabair2/Documents/GitHub/TonaFlow/main.prj" location="/Users/devlabair2/Documents/GitHub/TonaFlow" name="main" target="target.ezdeploy.standalone" target-name="Application Compiler">
+  <configuration file="/Users/manashsahoo/Documents/GitHub/TonaFlow/main.prj" location="/Users/manashsahoo/Documents/GitHub/TonaFlow" name="main" target="target.ezdeploy.standalone" target-name="Application Compiler">
     <param.appname>TonaFlow</param.appname>
     <param.icon />
     <param.icons />
-    <param.version>0.4</param.version>
+    <param.version>1.0</param.version>
     <param.authnamewatermark>Manash Sahoo &amp; Jeremy Borjon</param.authnamewatermark>
     <param.email />
     <param.company>Borjon Lab</param.company>
@@ -53,6 +53,7 @@ ${DYLD_LIBRARY_PATH}:MR/R2023b/runtime/maca64:MR/R2023b/sys/os/maca64:MR/R2023b/
     <unset>
       <param.icon />
       <param.icons />
+      <param.version />
       <param.email />
       <param.summary />
       <param.description />
@@ -92,8 +93,10 @@ ${DYLD_LIBRARY_PATH}:MR/R2023b/runtime/maca64:MR/R2023b/sys/os/maca64:MR/R2023b/
       <file>${PROJECT_ROOT}/CWTBandpassApp.mlapp</file>
       <file>${PROJECT_ROOT}/Resources/Helper Functions/CalculateBeats.m</file>
       <file>${PROJECT_ROOT}/Resources/Helper Functions/CalculateHeartRate.m</file>
+      <file>${PROJECT_ROOT}/Resources/Helper Functions/CalculateRespirationRate.m</file>
       <file>${PROJECT_ROOT}/Resources/Helper Functions/PreviewThreshold.m</file>
       <file>${PROJECT_ROOT}/Resources/Helper Functions/find_nan_indices.m</file>
+      <file>${PROJECT_ROOT}/Resources/Helper Functions/intersections.m</file>
       <file>${PROJECT_ROOT}/Resources/Helper Functions/isequaltol2.m</file>
       <file>${PROJECT_ROOT}/Resources/TF Logo.png</file>
       <file>${PROJECT_ROOT}/Resources/logo.png</file>
@@ -101,10 +104,10 @@ ${DYLD_LIBRARY_PATH}:MR/R2023b/runtime/maca64:MR/R2023b/sys/os/maca64:MR/R2023b/
       <file>${PROJECT_ROOT}/about.mlapp</file>
     </fileset.depfun>
     <build-deliverables>
-      <file location="${PROJECT_ROOT}/main/for_testing" name="readme.txt" optional="true">/Users/devlabair2/Documents/GitHub/TonaFlow/main/for_testing/readme.txt</file>
-      <file location="${PROJECT_ROOT}/main/for_testing" name="splash.png" optional="false">/Users/devlabair2/Documents/GitHub/TonaFlow/main/for_testing/splash.png</file>
-      <file location="${PROJECT_ROOT}/main/for_testing" name="run_TonaFlow.sh" optional="false">/Users/devlabair2/Documents/GitHub/TonaFlow/main/for_testing/run_TonaFlow.sh</file>
-      <file location="${PROJECT_ROOT}/main/for_testing" name="TonaFlow.app" optional="false">/Users/devlabair2/Documents/GitHub/TonaFlow/main/for_testing/TonaFlow.app</file>
+      <file location="${PROJECT_ROOT}/main/for_testing" name="readme.txt" optional="true">/Users/manashsahoo/Documents/GitHub/TonaFlow/main/for_testing/readme.txt</file>
+      <file location="${PROJECT_ROOT}/main/for_testing" name="TonaFlow.app" optional="false">/Users/manashsahoo/Documents/GitHub/TonaFlow/main/for_testing/TonaFlow.app</file>
+      <file location="${PROJECT_ROOT}/main/for_testing" name="run_TonaFlow.sh" optional="false">/Users/manashsahoo/Documents/GitHub/TonaFlow/main/for_testing/run_TonaFlow.sh</file>
+      <file location="${PROJECT_ROOT}/main/for_testing" name="splash.png" optional="false">/Users/manashsahoo/Documents/GitHub/TonaFlow/main/for_testing/splash.png</file>
     </build-deliverables>
     <workflow />
     <matlab>
