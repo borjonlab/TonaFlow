@@ -1,4 +1,4 @@
-function [outputArg1,outputArg2] = CalculateRespirationRate(rX,resp,Fs)
+function respRate = CalculateRespirationRate(rX,resp,Fs)
     sesLen=rX(end);
     rFs=50;
     rFTim=1/rFs:1/rFs:sesLen;
