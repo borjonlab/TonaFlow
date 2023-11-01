@@ -1,5 +1,5 @@
 #MATLAB Preferences
-#Mon Oct 23 11:48:22 CDT 2023
+#Wed Nov 01 11:29:20 CDT 2023
 Editor.Language.MuPAD.Color.operator=C-16711936
 RLHiddenB2_WB_2014b_1=I16376
 Editor.Language.VRMLX3DV.Color.field-keyword=C-65536
@@ -13,23 +13,24 @@ Editor.Language.VRML.Color.field-keyword=C-65536
 DeploytoollastOpenFile=S
 Editor.Language.VRML.Color.node-keyword=C-448910
 Editor.Language.VRML.Color.comment=C-9080482
-EditorMRU8=S/Users/manashsahoo/Documents/GitHub/TonaFlow/Resources/Helper Functions/PreviewThreshold.m
-EditorMRU7=S/Users/manashsahoo/Documents/GitHub/TonaFlow/Resources/Helper Functions/CalculateBeats.m
-EditorMRU6=S/Applications/MATLAB_R2023b.app/toolbox/curvefit/splines/chckxywp.m
-EditorMRU5=S/Users/manashsahoo/Documents/GitHub/TonaFlow/Resources/Helper Functions/CalculateHeartRate.m
-EditorMRU4=S/Applications/MATLAB_R2023b.app/toolbox/matlab/appdesigner/appdesigner/+appdesigner/+internal/+application/AppCodeTool.m
-EditorMRU3=S/Users/manashsahoo/Documents/GitHub/TonaFlow/Resources/Helper Functions/CalculateRespirationRate.m
-EditorMRU2=S/Users/manashsahoo/Documents/GitHub/TonaFlow/Resources/Helper Functions/intersections.m
-EditorMRU1=S/Applications/MATLAB_R2023b.app/toolbox/matlab/datatypes/cell/cell2mat.m
+EditorMRU8=S/Users/manashsahoo/Documents/GitHub/TonaFlow/Resources/Helper Functions/CalculateRespirationRate.m
+EditorMRU7=S/Users/manashsahoo/Documents/GitHub/TonaFlow/Resources/Helper Functions/intersections.m
+EditorMRU6=S/Applications/MATLAB_R2023b.app/toolbox/matlab/datatypes/cell/cell2mat.m
+EditorMRU5=S/Volumes/borjon/users/msahoo/K99 Probability Analysis/ClusterVocs.m
+EditorMRU4=S/Users/manashsahoo/Library/CloudStorage/OneDrive-UniversityOfHouston/CWT in C/CWTmex.c
+EditorMRU3=S/Volumes/borjon/data/k99FreePlay/Synchronization /sync.m
+EditorMRU2=S/Volumes/borjon/data/k99FreePlay/Synchronization /dirFilt.m
+EditorMRU1=S/Applications/MATLAB_R2023b.app/toolbox/matlab/plottools/+matlab/+graphics/+internal/+propertyinspector/PropertyInspectorManager.m
 CommandWindowClearConfirmation=Btrue
 Editor.Language.MuPAD.Color.function=C-7329974
 Editor.Language.VRML.Color.keyword=C-16711681
-DeploytoolrecentProjects=S/Users/manashsahoo/Documents/GitHub/TonaFlow/main.prj
+DeploytoolrecentProjects=S/Users/manashsahoo/Documents/GitHub/TonaFlow/main.prj;/Users/manashsahoo/Documents/GitHub/TonaFlow/CWTBandpass.prj;/Users/manashsahoo/Documents/MATLAB/untitled1.prj
 Editor.Language.VRMLX3DV.Color.terminal-symbol=C-16711936
 RLWidthB2_WB_2014b_1_1=I130
 RLWidthB2_WB_2014b_1_0=I130
 Editor.Language.VRMLX3DV.Color.string=C-1647756
 Editor.Language.VRMLX3DV.Color.data-type-keyword=C-16729641
+RLPrevInitB2_null=Btrue
 Editor.Language.MuPAD.Color.string=C-1647756
 Editor.Language.VRMLX3DV.Color.comment=C-9080482
 RLPrevInitB2_WB_2014b_1=Btrue

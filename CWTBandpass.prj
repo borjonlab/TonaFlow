@@ -1,33 +1,25 @@
 <deployment-project plugin="plugin.ezdeploy" plugin-version="1.0">
-  <configuration file="/Users/manashsahoo/Documents/GitHub/TonaFlow/main.prj" location="/Users/manashsahoo/Documents/GitHub/TonaFlow" name="main" target="target.ezdeploy.standalone" target-name="Application Compiler">
-    <param.appname>TonaFlow</param.appname>
+  <configuration file="/Users/manashsahoo/Documents/GitHub/TonaFlow/CWTBandpass.prj" location="/Users/manashsahoo/Documents/GitHub/TonaFlow" name="CWTBandpass" target="target.ezdeploy.standalone" target-name="Application Compiler">
+    <param.appname>CWTBandpass</param.appname>
     <param.icon />
     <param.icons />
     <param.version>1.0</param.version>
-    <param.authnamewatermark>Manash Sahoo &amp; Jeremy Borjon</param.authnamewatermark>
+    <param.authnamewatermark />
     <param.email />
-    <param.company>Borjon Lab</param.company>
+    <param.company />
     <param.summary />
     <param.description />
-    <param.screenshot>${PROJECT_ROOT}/Resources/TF Logo.png</param.screenshot>
+    <param.screenshot />
     <param.guid />
-    <param.installpath.string>/Borjon_Lab/TonaFlow/</param.installpath.string>
+    <param.installpath.string>/CWTBandpass/</param.installpath.string>
     <param.installpath.combo>option.installpath.systemwideapp</param.installpath.combo>
     <param.logo />
     <param.install.notes />
-    <param.target.install.notes>In the following directions, replace MR/R2023b by the directory on the target machine where MATLAB is installed, or MR by the directory where the MATLAB Runtime is installed.
-
-If the environment variable DYLD_LIBRARY_PATH is undefined, set it to the following string:
-
-MR/R2023b/runtime/maca64:MR/R2023b/sys/os/maca64:MR/R2023b/bin/maca64
-
-If it is defined, set it to the following:
-
-${DYLD_LIBRARY_PATH}:MR/R2023b/runtime/maca64:MR/R2023b/sys/os/maca64:MR/R2023b/bin/maca64</param.target.install.notes>
-    <param.intermediate>${PROJECT_ROOT}/main/for_testing</param.intermediate>
-    <param.files.only>${PROJECT_ROOT}/main/for_redistribution_files_only</param.files.only>
-    <param.output>${PROJECT_ROOT}/main/for_redistribution</param.output>
-    <param.logdir>${PROJECT_ROOT}/main</param.logdir>
+    <param.target.install.notes />
+    <param.intermediate>${PROJECT_ROOT}/CWTBandpass/for_testing</param.intermediate>
+    <param.files.only>${PROJECT_ROOT}/CWTBandpass/for_redistribution_files_only</param.files.only>
+    <param.output>${PROJECT_ROOT}/CWTBandpass/for_redistribution</param.output>
+    <param.logdir>${PROJECT_ROOT}/CWTBandpass</param.logdir>
     <param.enable.clean.build>false</param.enable.clean.build>
     <param.user.defined.mcr.options />
     <param.target.type>subtarget.standalone</param.target.type>
@@ -44,24 +36,23 @@ ${DYLD_LIBRARY_PATH}:MR/R2023b/runtime/maca64:MR/R2023b/sys/os/maca64:MR/R2023b/
     <param.native.matlab>false</param.native.matlab>
     <param.checkbox>false</param.checkbox>
     <param.example />
-    <param.help.text>Syntax 
-	  -? 
-	 
- Input Arguments 
-	 -?  print help on how to use the application 
-	 input arguments</param.help.text>
+    <param.help.text />
     <unset>
       <param.icon />
       <param.icons />
       <param.version />
+      <param.authnamewatermark />
       <param.email />
+      <param.company />
       <param.summary />
       <param.description />
+      <param.screenshot />
       <param.guid />
       <param.installpath.string />
       <param.installpath.combo />
       <param.logo />
       <param.install.notes />
+      <param.target.install.notes />
       <param.intermediate />
       <param.files.only />
       <param.output />
@@ -82,25 +73,19 @@ ${DYLD_LIBRARY_PATH}:MR/R2023b/runtime/maca64:MR/R2023b/sys/os/maca64:MR/R2023b/
       <param.native.matlab />
       <param.checkbox />
       <param.example />
+      <param.help.text />
     </unset>
     <fileset.main>
-      <file>${PROJECT_ROOT}/main.mlapp</file>
+      <file>${PROJECT_ROOT}/CWTBandpassApp.mlapp</file>
     </fileset.main>
     <fileset.resources />
     <fileset.package />
-    <fileset.depfun>
-      <file>${PROJECT_ROOT}/BeatDetectionDlg.mlapp</file>
-      <file>${PROJECT_ROOT}/CWTBandpassApp.mlapp</file>
-      <file>${PROJECT_ROOT}/Resources/TF Logo.png</file>
-      <file>${PROJECT_ROOT}/Resources/logo.png</file>
-      <file>${PROJECT_ROOT}/RespDLG.mlapp</file>
-      <file>${PROJECT_ROOT}/about.mlapp</file>
-    </fileset.depfun>
+    <fileset.depfun />
     <build-deliverables>
-      <file location="${PROJECT_ROOT}/main/for_testing" name="readme.txt" optional="true">/Users/manashsahoo/Documents/GitHub/TonaFlow/main/for_testing/readme.txt</file>
-      <file location="${PROJECT_ROOT}/main/for_testing" name="TonaFlow.app" optional="false">/Users/manashsahoo/Documents/GitHub/TonaFlow/main/for_testing/TonaFlow.app</file>
-      <file location="${PROJECT_ROOT}/main/for_testing" name="run_TonaFlow.sh" optional="false">/Users/manashsahoo/Documents/GitHub/TonaFlow/main/for_testing/run_TonaFlow.sh</file>
-      <file location="${PROJECT_ROOT}/main/for_testing" name="splash.png" optional="false">/Users/manashsahoo/Documents/GitHub/TonaFlow/main/for_testing/splash.png</file>
+      <file location="${PROJECT_ROOT}/CWTBandpass/for_testing" name="splash.png" optional="false">/Users/manashsahoo/Documents/GitHub/TonaFlow/CWTBandpass/for_testing/splash.png</file>
+      <file location="${PROJECT_ROOT}/CWTBandpass/for_testing" name="readme.txt" optional="true">/Users/manashsahoo/Documents/GitHub/TonaFlow/CWTBandpass/for_testing/readme.txt</file>
+      <file location="${PROJECT_ROOT}/CWTBandpass/for_testing" name="CWTBandpass.app" optional="false">/Users/manashsahoo/Documents/GitHub/TonaFlow/CWTBandpass/for_testing/CWTBandpass.app</file>
+      <file location="${PROJECT_ROOT}/CWTBandpass/for_testing" name="run_CWTBandpass.sh" optional="false">/Users/manashsahoo/Documents/GitHub/TonaFlow/CWTBandpass/for_testing/run_CWTBandpass.sh</file>
     </build-deliverables>
     <workflow />
     <matlab>
