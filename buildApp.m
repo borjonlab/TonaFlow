@@ -1,0 +1,8 @@
+function status = buildApp
+    % This function is used to build the app into a standalone OSX app.
+    try
+        mcc -o TonaFlow -W 'main:TonaFlow,version=1.0' -T link:exe -d /Users/manashsahoo/Documents/GitHub/TonaFlow1.0/main/for_testing -v /Users/manashsahoo/Documents/GitHub/TonaFlow1.0/main.mlapp 
+    catch ME
+        status = 0;
+    end
+end

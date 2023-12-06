@@ -1,11 +1,9 @@
-function dum = CalculateBeats(app,hTim,hMon,Fs,MergeTol, Threshwin)
+function dum = CalculateBeats(hTim,hMon,Fs,MergeTol, Threshwin)
     Fs = round(Fs);
     if nargin < 4
         MergeTol = 1/Fs;
     end
     
-    %% Initialize a UI Progress bar
-    dlg = uiprogressdlg(app.TonaFlowUIFigure,'message','Calculating beats...');
     
     sesLen=hTim(end)-hTim(1);
     %%segment into 1 second windows
@@ -24,13 +22,8 @@ function dum = CalculateBeats(app,hTim,hMon,Fs,MergeTol, Threshwin)
         spks=[spks; [Time(g,find(seg>a))/Fs]'];
         clear seg
     end
-    %%
-    dlg.Value = .25;
-    %%
 
-
-    % mSpks = uniquetol(spks,1/MergeTol);
-    mSpks = spks;
+    mSpks = uniquetol(spks,1/MergeTol);
     mSpks = sort(mSpks);
     
     % Something weird is happening so just check to make sure everything is
@@ -51,26 +44,17 @@ function dum = CalculateBeats(app,hTim,hMon,Fs,MergeTol, Threshwin)
     % reftab(:,2) = round(reftab(:,2), 5);
     win =  20; % Number of element window
     nspk = [];
-    nspk2 = [];
     for x = 1:size(mSpks,1)
-        this = reftab(reftab(:,2) == mSpks(x),:);
-        % this = reftab(isequaltol2(reftab(:,2),mSpks(x),1/Fs),:);
-        % winix = this(end,1) - (win/2) : this(end,1) + (win/2);
-        winix = this(1) - (win/2) : this(1) + (win/2);
-
-        window = reftab(winix(winix>0),:);
+        % this = reftab(reftab(:,2) == mSpks(x),:);
+        this = reftab(isequaltol2(reftab(:,2),mSpks(x),1/Fs),:);
+        window = reftab(this(1) - (win/2) : this(1) + (win/2),:);
         [m,i] = max(window(:,3));
         nspk = [nspk; window(i,2)];
-        nspk2 = [nspk2; window(i,1)];
     end
-    %%
-    dlg.Value = 1;
-    %%
+
     dum = zeros(1,ceil(sesLen*Fs)); 
-    % dum(round(nspk*Fs)) = 1;
-    dum(nspk2) = 1;
+    dum(round(nspk*Fs)) = 1;
     
-    close(dlg);
     %% Debug.
     % figure;
     % plot(hTim,hMon);

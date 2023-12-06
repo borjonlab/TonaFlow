@@ -1,6 +1,6 @@
 function [thr, Time] = PreviewThreshold(ECGx,ECGy, prc, Fs, Threshwin)
     % Function to preview the thresholding from the beat detection dialog
-    % window.
+    % window..
     sesLen=ECGx(end)-ECGx(1);
     %%segment into 1 second windows
     % lseg=1;
