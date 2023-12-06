@@ -7,7 +7,7 @@
 	<key>CFBundleExecutable</key>
 	<string>prelaunch</string>
 	<key>CFBundleIconFile</key>
-	<string>Icon.icns</string>
+	<string>membrane.icns</string>
 	<key>CFBundleIdentifier</key>
 	<string>TonaFlow</string>
 	<key>CFBundleInfoDictionaryVersion</key>
