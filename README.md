@@ -279,9 +279,4 @@ Adjust your upper and lower frequencies accordingly, until the signal resembles 
 <h1 name = 'dev' class = 'subtitle' > Under the Hood </h1>
 
 ---
-
-
-
-<h3 name = 'dev_filt'> CWT Filtering </h3>
-
-___
+This portion of the documentation is under construction. If you have any questions about how TonaFlow works, email msahoo3@central.uh.edu.
