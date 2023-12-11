@@ -66,8 +66,10 @@ ___
 <h1 name = 'install' class = "subtitle" > Installation </h1>
 
 ---
+Before installing into <strong> any </strong> OS, the MATLAB Runtime environment is required. You can download this for your respective OS [here](https://www.mathworks.com/products/compiler/matlab-runtime.html).
 
 <h3 name = 'install_mac'> Mac OSX </h3>
+
 
 <h3 name = 'install_windows'> Windows </h3>
 
