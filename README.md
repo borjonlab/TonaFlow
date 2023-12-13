@@ -70,6 +70,7 @@ Before installing into <strong> any </strong> OS, the MATLAB Runtime environment
 
 <h3 name = 'install_mac'> Mac OSX </h3>
 
+In `build/for_testing/`, Move `TonaFlow.app` into your applications folder. Double-click to run. 
 
 <h3 name = 'install_windows'> Windows </h3>
 
@@ -281,4 +282,15 @@ Adjust your upper and lower frequencies accordingly, until the signal resembles 
 <h1 name = 'dev' class = 'subtitle' > Under the Hood </h1>
 
 ---
-This portion of the documentation is under construction. If you have any questions about how TonaFlow works, email msahoo3@central.uh.edu.
+
+<i>This portion of the documentation is under construction. If you have any questions about how TonaFlow works, email msahoo3@central.uh.edu. </i>
+
+<h3 name = 'dev_arch'> Program Architecture </h3>
+
+___
+
+The following flow chart describes the basic architecture of TonaFlow.
+
+<h3 name = 'dev_filt'> Filtering using the CWT </h3>
+
+___
