@@ -291,6 +291,30 @@ ___
 
 The following flow chart describes the basic architecture of TonaFlow.
 
+![](https://imgur.com/UkkZ7Po.png)
+
+Object References (ECG_Class)
+
+<div align=center>
+
+| $Property$ | $Description$  |
+| ----- | ------------------------- |
+| X_Raw | Raw X component from file (Immutable)|
+| Y_Raw | Raw Y component from file (Immutable)|
+| Fs    | Calculated sampling rate  ([see above](#usage_dataformatting)) |
+| X_Filtered | Filtered version of `X_Raw`. Needed as filtering may induce array size discrepencies between `X_Raw` and `X_Filtered`.  |
+| Y_Filtered | Filtered version of Y_Raw | 
+| X_Spliced | Spliced version of `X_Filtered`. NaN == removed data. |
+| Y_Spliced | Spliced version of `Y_Filtered`. NaN == removed data. |
+| BeatsSpliced | Spliced version of `Beats`. NaN == spliced. |
+| SpliceLocations | Locations where user has removed data. Stored as an Nx2 array. |
+| HasFiltered | Boolean for whether the user has filtered the ECG. |
+
+
+
+</div>
+
 <h3 name = 'dev_filt'> Filtering using the CWT </h3>
 
 ___
+
