@@ -259,6 +259,7 @@ classdef ECG_Class
 
         function self = SpliceECG(self,RemovalRects,app)
             % Indicate that the ECG is now spliced
+            
             self.IsSpliced = 1;
             self.X_Spliced = self.X_Filtered;
             self.Y_Spliced = self.Y_Filtered; 
@@ -282,7 +283,7 @@ classdef ECG_Class
                 % Find nearest leftward beat
                 Lxx = find(self.Beats(1:SpliceLocations(i,1)) == 1);
                 leftBeat = Lxx(end);
-
+            
                 Rxx = find([zeros(1,SpliceLocations(i,2)) self.Beats(SpliceLocations(i,2):end)] == 1);
                 rightBeat = Rxx(1)-1;
 
@@ -298,7 +299,7 @@ classdef ECG_Class
         end
 
         %% Data Checks
-        function RowColCheck
+        % function RowColCheck
         function SizeCheck(self)
             % Sometimes, when performing operations like calculating heart
             % rate, rounding errors will ocurr. These rounding errors are
