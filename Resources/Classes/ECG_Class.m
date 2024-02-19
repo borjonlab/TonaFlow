@@ -265,9 +265,9 @@ classdef ECG_Class
                 self.Y_Spliced = self.Y_Filtered; 
                 self.BeatsSpliced = self.Beats;
             else
-                self.BeatsSpliced = self.Beats;
-                self.X_Spliced = self.X_Filtered;
-                self.Y_Spliced = self.Y_Filtered;
+                % self.BeatsSpliced = self.Beats;
+                % self.X_Spliced = self.X_Filtered;
+                % self.Y_Spliced = self.Y_Filtered;
             end
             
             try %Put these in a try-catch because some of them might have been deleted. If it loops over the deleted one it will throw an error. 
