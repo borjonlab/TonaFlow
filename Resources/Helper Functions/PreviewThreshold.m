@@ -13,10 +13,10 @@ function [thr, Time] = PreviewThreshold(ECGx,ECGy, prc, Fs, Threshwin)
     end
     % Step through time segments and find peaks > 95 percentile
     spks=[];
-    thr = zeros(1,size(ECGx,2));
+    thr = zeros(1,length(ECGx));
     for g=1:size(Time,1)
         seg=ECGy(Time(g,:));
-        a=prctile(seg,97.5);
+        a=prctile(seg,prc);
         thr(Time(g,:)) = repelem(a,1,size(Time,2));
         spks=[spks; [Time(g,find(seg>a))/Fs]'];
         clear seg

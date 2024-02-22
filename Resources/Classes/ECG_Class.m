@@ -27,6 +27,8 @@ classdef ECG_Class
         HasFiltered % Has there been filtering applied? 
         % How many elements have been edited for size congruence?
         SizeEdits = 0;
+
+        prc = 97.5;
     end
    methods(Static) 
         function CheckDataFormat(data)
@@ -142,7 +144,7 @@ classdef ECG_Class
             spks=[];
             for g=1:size(Time,1)
                 seg=hMon(Time(g,:));
-                a=prctile(seg,97.5);
+                a=prctile(seg,self.prc);
                 spks=[spks; [Time(g,find(seg>a))/Fs]'];
                 clear seg
             end
