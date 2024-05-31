@@ -126,6 +126,12 @@ classdef ECG_Class
                     rate = [rate(1:self.SpliceLocations(i,1)), nanpad, rate(self.SpliceLocations(i,1):end)];
                 end
             end
+            if size(self.X_Filtered,1) < length(rate)
+                rate = rate(1:size(self.X_Filtered,1));
+            elseif size(self.X_Filtered,1) > length(rate)
+                df =  size(self.X_Filtered,1) - size(rate,1);
+                rate = [rate,nan(1,df)];
+            end
             self.HeartRate = rate;
         end
 
@@ -282,6 +288,9 @@ classdef ECG_Class
             end
 
             beatlocations = zeros(size(SpliceLocations,1),2);
+            % Decide whether we are using the spliced beats or the regular
+            % beats
+            
             % Start splicing the data 
             for i = 1:size(SpliceLocations,1)
                 % For each location, find the first beat to the left of the first index, and
