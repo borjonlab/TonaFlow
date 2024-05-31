@@ -1,5 +1,5 @@
 classdef ECG_Class
-    % ECG_CLASS Summary of this class goes here
+    %ECG_CLASS Summary of this class goes here
     %   Detailed explanation goes here
     
     properties
@@ -24,6 +24,7 @@ classdef ECG_Class
         BeatsSpliced
         SpliceLocations
         
+        HasFiltered % Has there been filtering applied? 
         % How many elements have been edited for size congruence?
         SizeEdits = 0;
     end
@@ -45,21 +46,36 @@ classdef ECG_Class
     methods
         %% Class Construction
         function obj = ECG_Class(path2ecg)
-                        
-            % Read in the ECG
-            data = readmatrix(path2ecg);
-            % Cehck the data format
-            obj.CheckDataFormat(data); 
-            % Construct the class
-            obj.X_Raw = data(:,1);
-            obj.Y_Raw = (data(:,2) - mean(data(:,2))) / std(data(:,2));
-            obj.Fs = round(1/mean(diff(obj.X_Raw)));
-
-            % Set the filtered to the X_Raw, we do this because the
-            % ECG_Filtered is what the user sees, while ECG_Raw is what we
-            % act on when filtering or splicing data. 
-            obj.X_Filtered = obj.X_Raw;
-            obj.Y_Filtered = obj.Y_Raw;
+            if strcmp(class(path2ecg),'struct') % Ability to create a blank class instance. This is essentially used to load projects from JSON format.
+                % Get the properties of the object and assign them to the
+                % struct's values
+                props = string(properties(obj));
+                fields = string(fieldnames(path2ecg));
+                % Check to see if all fields match up
+                
+                for i = 1:size(props,1)
+                    pr = props(i);
+                    ix = find(props(i) == fields);
+                    if ~isempty(ix)
+                        obj.(pr) = path2ecg.(pr);
+                    end
+                end
+            elseif strcmp(class(path2ecg),'String') | strcmp(class(path2ecg),'char')
+                % Read in the ECG
+                data = readmatrix(path2ecg);
+                % Cehck the data format
+                obj.CheckDataFormat(data); 
+                % Construct the class
+                obj.X_Raw = data(:,1);
+                obj.Y_Raw = (data(:,2) - mean(data(:,2))) / std(data(:,2));
+                obj.Fs = round(1/mean(diff(obj.X_Raw)));
+    
+                % Set the filtered to the X_Raw, we do this because the
+                % ECG_Filtered is what the user sees, while ECG_Raw is what we
+                % act on when filtering or splicing data. 
+                obj.X_Filtered = obj.X_Raw;
+                obj.Y_Filtered = obj.Y_Raw;
+            end
         end
 
 
@@ -68,7 +84,7 @@ classdef ECG_Class
         function self = CalculateHeartRate(self,dum, dt ,Fs,BlurWinLen) %, SmoothingFactor)
             % if nargin < 5
                 BlurWinLen = 10;
-                SmoothingFactor = .7    ; % For CSAPS
+                SmoothingFactor = .7; % For CSAPS
             % end
             
             % Determine if we are operating on a spliced signal or not
@@ -246,6 +262,7 @@ classdef ECG_Class
             if self.IsSpliced == 0
                 self.IsSpliced = 1;
             end
+            % self.IsSpliced = 1;
             self.X_Spliced = self.X_Filtered;
             self.Y_Spliced = self.Y_Filtered; 
             self.BeatsSpliced = self.Beats;
@@ -268,7 +285,7 @@ classdef ECG_Class
                 % Find nearest leftward beat
                 Lxx = find(self.Beats(1:SpliceLocations(i,1)) == 1);
                 leftBeat = Lxx(end);
-
+            
                 Rxx = find([zeros(1,SpliceLocations(i,2)) self.Beats(SpliceLocations(i,2):end)] == 1);
                 rightBeat = Rxx(1)-1;
 
@@ -284,6 +301,7 @@ classdef ECG_Class
         end
 
         %% Data Checks
+        % function RowColCheck
         function SizeCheck(self)
             % Sometimes, when performing operations like calculating heart
             % rate, rounding errors will ocurr. These rounding errors are
