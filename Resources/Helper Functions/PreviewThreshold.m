@@ -1,4 +1,4 @@
-function [thr, Time] = PreviewThreshold(ECGx,ECGy, prc, Fs, Threshwin)
+function [thr, Time] = PreviewThreshold(ECGx,ECGy, prc, Fs, Threshwin,PRCT)
     % Function to preview the thresholding from the beat detection dialog
     % window..
     sesLen=ECGx(end)-ECGx(1);
@@ -13,10 +13,10 @@ function [thr, Time] = PreviewThreshold(ECGx,ECGy, prc, Fs, Threshwin)
     end
     % Step through time segments and find peaks > 95 percentile
     spks=[];
-    thr = zeros(1,length(ECGx));
+    thr = zeros(1,size(ECGx,2));
     for g=1:size(Time,1)
         seg=ECGy(Time(g,:));
-        a=prctile(seg,prc);
+        a=prctile(seg,PRCT);
         thr(Time(g,:)) = repelem(a,1,size(Time,2));
         spks=[spks; [Time(g,find(seg>a))/Fs]'];
         clear seg

@@ -66,10 +66,8 @@ ___
 <h1 name = 'install' class = "subtitle" > Installation </h1>
 
 ---
-Before installing into <strong> any </strong> OS, the MATLAB Runtime environment is required. You can download this for your respective OS [here](https://www.mathworks.com/products/compiler/matlab-runtime.html).
 
 <h3 name = 'install_mac'> Mac OSX </h3>
-
 
 <h3 name = 'install_windows'> Windows </h3>
 
@@ -228,10 +226,10 @@ This will save the heart rate, heart beat locations, and respiratory rate (if ca
 
 | $t$ | $Heart Rate$ | $Heart Beats$ | $Respiratory Rate$ |
 | --- | ------ | ------ | ------ |
-| 0.1 | $1100$ | $0$ | $30$
-| 0.2 | $1200$ | $0$ | $30$
-| 0.3 | $1300$ | $1$ | $31$
-| 0.4 | $800$  | $0$ | $34$
+| 0.1 | $100$ | $0$ | $30$
+| 0.2 | $120$ | $0$ | $30$
+| 0.3 | $130$ | $1$ | $31$
+| 0.4 | $100$  | $0$ | $34$
 | ... | $...$  | $...$ | $...$
 
 </div>
@@ -281,4 +279,9 @@ Adjust your upper and lower frequencies accordingly, until the signal resembles 
 <h1 name = 'dev' class = 'subtitle' > Under the Hood </h1>
 
 ---
-This portion of the documentation is under construction. If you have any questions about how TonaFlow works, email msahoo3@central.uh.edu.
+
+
+
+<h3 name = 'dev_filt'> CWT Filtering </h3>
+
+___

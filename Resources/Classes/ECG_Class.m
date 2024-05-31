@@ -1,5 +1,5 @@
 classdef ECG_Class
-    %ECG_CLASS Summary of this class goes here
+    % ECG_CLASS Summary of this class goes here
     %   Detailed explanation goes here
     
     properties
@@ -24,11 +24,8 @@ classdef ECG_Class
         BeatsSpliced
         SpliceLocations
         
-        HasFiltered % Has there been filtering applied? 
         % How many elements have been edited for size congruence?
         SizeEdits = 0;
-
-        prc = 97.5;
     end
    methods(Static) 
         function CheckDataFormat(data)
@@ -48,36 +45,21 @@ classdef ECG_Class
     methods
         %% Class Construction
         function obj = ECG_Class(path2ecg)
-            if strcmp(class(path2ecg),'struct') % Ability to create a blank class instance. This is essentially used to load projects from JSON format.
-                % Get the properties of the object and assign them to the
-                % struct's values
-                props = string(properties(obj));
-                fields = string(fieldnames(path2ecg));
-                % Check to see if all fields match up
-                
-                for i = 1:size(props,1)
-                    pr = props(i);
-                    ix = find(props(i) == fields);
-                    if ~isempty(ix)
-                        obj.(pr) = path2ecg.(pr);
-                    end
-                end
-            elseif strcmp(class(path2ecg),'String') | strcmp(class(path2ecg),'char')
-                % Read in the ECG
-                data = readmatrix(path2ecg);
-                % Cehck the data format
-                obj.CheckDataFormat(data); 
-                % Construct the class
-                obj.X_Raw = data(:,1);
-                obj.Y_Raw = (data(:,2) - mean(data(:,2))) / std(data(:,2));
-                obj.Fs = round(1/mean(diff(obj.X_Raw)));
-    
-                % Set the filtered to the X_Raw, we do this because the
-                % ECG_Filtered is what the user sees, while ECG_Raw is what we
-                % act on when filtering or splicing data. 
-                obj.X_Filtered = obj.X_Raw;
-                obj.Y_Filtered = obj.Y_Raw;
-            end
+                        
+            % Read in the ECG
+            data = readmatrix(path2ecg);
+            % Cehck the data format
+            obj.CheckDataFormat(data); 
+            % Construct the class
+            obj.X_Raw = data(:,1);
+            obj.Y_Raw = (data(:,2) - mean(data(:,2))) / std(data(:,2));
+            obj.Fs = round(1/mean(diff(obj.X_Raw)));
+
+            % Set the filtered to the X_Raw, we do this because the
+            % ECG_Filtered is what the user sees, while ECG_Raw is what we
+            % act on when filtering or splicing data. 
+            obj.X_Filtered = obj.X_Raw;
+            obj.Y_Filtered = obj.Y_Raw;
         end
 
 
@@ -86,7 +68,7 @@ classdef ECG_Class
         function self = CalculateHeartRate(self,dum, dt ,Fs,BlurWinLen) %, SmoothingFactor)
             % if nargin < 5
                 BlurWinLen = 10;
-                SmoothingFactor = .9; % For CSAPS
+                SmoothingFactor = .7    ; % For CSAPS
             % end
             
             % Determine if we are operating on a spliced signal or not
@@ -126,17 +108,11 @@ classdef ECG_Class
                     rate = [rate(1:self.SpliceLocations(i,1)), nanpad, rate(self.SpliceLocations(i,1):end)];
                 end
             end
-            if size(self.X_Filtered,1) < length(rate)
-                rate = rate(1:size(self.X_Filtered,1));
-            elseif size(self.X_Filtered,1) > length(rate)
-                df =  size(self.X_Filtered,1) - size(rate,1);
-                rate = [rate,nan(1,df)];
-            end
             self.HeartRate = rate;
         end
 
 
-        function self = CalculateBeats(self,hTim,hMon,Fs, Threshwin)
+        function self = CalculateBeats(self,hTim,hMon,Fs, Threshwin, PRCT)
             sesLen=hTim(end)-hTim(1);
             %%segment into 1 second windows
             % lseg=1;
@@ -150,7 +126,7 @@ classdef ECG_Class
             spks=[];
             for g=1:size(Time,1)
                 seg=hMon(Time(g,:));
-                a=prctile(seg,self.prc);
+                a=prctile(seg,PRCT);
                 spks=[spks; [Time(g,find(seg>a))/Fs]'];
                 clear seg
             end
@@ -267,16 +243,12 @@ classdef ECG_Class
 
         function self = SpliceECG(self,RemovalRects,app)
             % Indicate that the ECG is now spliced
-            if app.ECG.IsSpliced == 0
+            if self.IsSpliced == 0
                 self.IsSpliced = 1;
-                self.X_Spliced = self.X_Filtered;
-                self.Y_Spliced = self.Y_Filtered; 
-                self.BeatsSpliced = self.Beats;
-            else
-                % self.BeatsSpliced = self.Beats;
-                % self.X_Spliced = self.X_Filtered;
-                % self.Y_Spliced = self.Y_Filtered;
             end
+            self.X_Spliced = self.X_Filtered;
+            self.Y_Spliced = self.Y_Filtered; 
+            self.BeatsSpliced = self.Beats;
             
             try %Put these in a try-catch because some of them might have been deleted. If it loops over the deleted one it will throw an error. 
                 SpliceLocations = zeros(length(RemovalRects),2); % We just need the X locations. Left is start, right is stop.
@@ -288,9 +260,6 @@ classdef ECG_Class
             end
 
             beatlocations = zeros(size(SpliceLocations,1),2);
-            % Decide whether we are using the spliced beats or the regular
-            % beats
-            
             % Start splicing the data 
             for i = 1:size(SpliceLocations,1)
                 % For each location, find the first beat to the left of the first index, and
@@ -299,7 +268,7 @@ classdef ECG_Class
                 % Find nearest leftward beat
                 Lxx = find(self.Beats(1:SpliceLocations(i,1)) == 1);
                 leftBeat = Lxx(end);
-            
+
                 Rxx = find([zeros(1,SpliceLocations(i,2)) self.Beats(SpliceLocations(i,2):end)] == 1);
                 rightBeat = Rxx(1)-1;
 
@@ -315,7 +284,6 @@ classdef ECG_Class
         end
 
         %% Data Checks
-        % function RowColCheck
         function SizeCheck(self)
             % Sometimes, when performing operations like calculating heart
             % rate, rounding errors will ocurr. These rounding errors are
