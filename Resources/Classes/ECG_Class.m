@@ -64,7 +64,21 @@ classdef ECG_Class
                 % Read in the ECG
                 data = readmatrix(path2ecg);
                 % Cehck the data format
-                obj.CheckDataFormat(data); 
+                try
+                    obj.CheckDataFormat(data);
+                catch ME
+                    if ME.identifier == "ECG_Class:noTimeComponent"
+                        % inp = inputdlg("No time component detected. Input sampling rate:");
+                        inp = questdlg("No time component detected. Is this a Movisens ecg.csv file? (Sampling rate will default to 1024Hz)",'yes','no');
+                        if strcmp(inp,'Yes')
+                            calcX = 1/1024:1/1024:size(data,1)/1024;
+                            data = [calcX(:), data(:,1)];
+                        else
+                            errordlg("Please add a time column as the first column for your dataset, and load again.");
+                            return
+                        end
+                    end
+                end
                 % Construct the class
                 obj.X_Raw = data(:,1);
                 obj.Y_Raw = (data(:,2) - mean(data(:,2))) / std(data(:,2));
