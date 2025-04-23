@@ -303,7 +303,7 @@ classdef ECG_Class
                 Rxx = find([zeros(1,SpliceLocations(i,2)) self.Beats(SpliceLocations(i,2):end)] == 1);
                 rightBeat = Rxx(1)-1;
 
-                beatlocations(i,:) = [leftBeat rightBeat];
+                beatlocations(i,:) = [leftBeat+1 rightBeat];
             end
 
             for k = 1:size(beatlocations,1)
