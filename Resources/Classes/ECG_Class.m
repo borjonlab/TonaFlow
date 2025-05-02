@@ -188,7 +188,11 @@ classdef ECG_Class
                 % this = reftab(isequaltol2(reftab(:,2),mSpks(x),1/Fs),:);
                 % winix = this(end,1) - (win/2) : this(end,1) + (win/2);
                 winix = this(1) - (win/2) : this(1) + (win/2);
-        
+                % If winix indexes past reftab size, then get rid of those
+                % indices
+                outofbounds = find(winix > size(reftab,1));
+                winix(outofbounds) = [];
+
                 window = reftab(winix(winix>0),:);
                 [m,i] = max(window(:,3));
                 nspk = [nspk; window(i,2)];
