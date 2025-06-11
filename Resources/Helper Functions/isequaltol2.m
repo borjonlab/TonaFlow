@@ -1,4 +1,6 @@
 function flag = isequaltol2(a,b,tol)
+a = a(:);
+b = b(:);
     % flag = [];
     % for i = 1:numel(a)
     %     if isequaltol(a(i),b,tol)

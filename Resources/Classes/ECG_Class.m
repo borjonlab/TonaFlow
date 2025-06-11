@@ -156,8 +156,10 @@ classdef ECG_Class
             spks=[];
             for g=1:size(Time,1)
                 seg=hMon(Time(g,:));
+                tseg=hTim(Time(g,:));
                 a=prctile(seg,PRCT);
-                spks=[spks; [Time(g,find(seg>a))/Fs]'];
+                % spks=[spks; [Time(g,find(seg>a))/Fs]'];
+                spks=[spks; tseg(find(seg>a))];
                 clear seg
             end
         
