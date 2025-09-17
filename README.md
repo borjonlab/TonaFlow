@@ -15,12 +15,18 @@
 
 <!-- // Tonaflow logo -->
 
+<div align="center">
 
+![Fancy Logo](Resources/Lab%20Logo%20-%20Bottom%20Text%20Black%20Trans.png#gh-light-mode-only)
+![Fancy Logo](Resources/Lab%20Logo%20-%20Bottom%20Text%20White%20Trans.png#gh-dark-mode-only)
+</div>
 
 <div align="center">
+
 ![Fancy Logo](Resources/TF%20Logo%20Darkmode.png#gh-dark-mode-only)
 ![Fancy Logo](Resources/TF%20Logo.png#gh-light-mode-only)
 </div>
+
 
 
 
