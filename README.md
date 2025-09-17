@@ -14,12 +14,22 @@
 <h1 align='center'>TonaFlow - A Free Program for ECG Processing</h1>
 
 <!-- // Tonaflow logo -->
+
+
+
+<!-- 
 <p align='center'>
     <img src='./Resources/devsys_logo.png' height=100> 
-</p>
-<p align='center'>
+</p> -->
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./Resources/TF Logo Darkmode.png">
+  <img  src="./Resources/TF Logo.png.png">
+</picture>
+
+<!-- <p align='center'>
     <img src=https://i.imgur.com/SftJL0e.png height=190> 
-</p>
+</p> -->
 
 <!-- Start -->
 
