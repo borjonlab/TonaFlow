@@ -17,16 +17,22 @@
 
 
 
-<!-- 
-<p align='center'>
-    <img src='./Resources/devsys_logo.png' height=100> 
-</p> -->
+<div align="center">
+![Fancy Logo](Resources/TF%20Logo%20Darkmode.png#gh-dark-mode-only)
+![Fancy Logo](Resources/TF%20Logo.png#gh-light-mode-only)
+</div>
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./Resources/TF Logo Darkmode.png">
-  <img  src="./Resources/TF Logo.png.png">
+
+
+<!-- <picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://i.postimg.cc/02VrV7bL/Lab-Logo-Bottom-Text-White-Trans.png">
+  <img align="center" alt="Shows an illustrated sun in light color mode and a moon with stars in dark color mode." src="https://i.postimg.cc/K84jw4T4/Lab-Logo-Bottom-Text-Black-Trans.png">
 </picture>
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://i.postimg.cc/9FZJTF0R/TF-Logo-Darkmode.png">
+  <img align="center" alt="Shows an illustrated sun in light color mode and a moon with stars in dark color mode." src="https://i.postimg.cc/MZh9vj6J/TF-Logo.png">
+</picture> -->
 <!-- <p align='center'>
     <img src=https://i.imgur.com/SftJL0e.png height=190> 
 </p> -->
