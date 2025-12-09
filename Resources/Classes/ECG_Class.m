@@ -63,6 +63,14 @@ classdef ECG_Class
             elseif strcmp(class(path2ecg),'String') | strcmp(class(path2ecg),'char')
                 % Read in the ECG
                 data = readmatrix(path2ecg);
+                
+
+                % Added Dec 9 2025, sometimes files read header lines.
+                if any(isnan(data(1,:)))
+                    data(1,:) = [];
+                end
+
+
                 % Cehck the data format
                 try
                     obj.CheckDataFormat(data);
